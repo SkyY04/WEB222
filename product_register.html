@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://unpkg.com/mvp.css"> 
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Saeha Yoon - Product Registration</title>
+    <style>
+        .error-message {
+            color: red;
+            font-size: 14px;
+        }
+    </style>
+<header>
+	<nav>
+		<div class="center">
+		<ul>	
+			<li><a href="about.html">About</a></li>
+			<li><a href="honesty.html">Honesty</a></li>
+      <li><a href="index.html">Index</a></li>
+      <li><a href="reflection.html">Reflection</a></li>
+		</ul>
+		</div>
+	</nav>
+
+<body>
+    <h2>Product Registration</h2>
+    <form id="signup" action="https://httpbin.org/post" method="post" onsubmit="return validateForm()">
+        <input type="hidden" name="FullName" id="FullName" value="Your Full Name">
+        <input type="hidden" name="studentId" id="studentId" value="Your Student ID">
+        
+        <div>
+            <label for="productId">Product ID (8digits):</label>
+            <input type="number" id="productId" name="productId" min="10000000" max="99999999" required>
+            <div id="productIdError" class="error-message"></div>
+        </div>
+
+        <div>
+            <label for="productDescription">Product Description:</label>
+            <textarea id="productDescription" name="productDescription" required></textarea>
+            <div id="productDescriptionError" class="error-message"></div>
+        </div>
+
+        <div>
+            <label for="price">Price:</label>
+            <input type="number" id="price" name="price" min="1" max="999" step="1" required>
+            <div id="priceError" class="error-message"></div>
+        </div>
+
+        <div>
+            <label for="supplierUsername">Supplier Username:</label>
+            <input type="text" id="supplierUsername" name="supplierUsername" pattern="[A-Za-z][A-Za-z0-9]{3,}" required>
+            <div id="supplierUsernameError" class="error-message"></div>
+        </div>
+
+        <div>
+            <label>Supplier Status:</label><br>
+            <input type="checkbox" id="statusNew" name="supplierStatus" value="New Supplier">
+            <label for="statusNew">New Supplier</label><br>
+            <input type="checkbox" id="statusContract" name="supplierStatus" value="Contract Signed">
+            <label for="statusContract">Contract Signed</label><br>
+            <input type="checkbox" id="statusTested" name="supplierStatus" value="Quality Tested">
+            <label for="statusTested">Quality Tested</label>
+            <div id="supplierStatusError" class="error-message"></div>
+        </div>
+
+        <div>
+            <label for="supplierEmail">Supplier Email:</label>
+            <input type="email" id="supplierEmail" name="supplierEmail" required>
+        </div>
+
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+    </form>
+
+    
+</body>
+</html>
